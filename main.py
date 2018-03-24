@@ -23,13 +23,16 @@ def main():
                     tasks[e['parent_project_id']].append(e)
     for k, p in tasks.items():
         print("* {}".format(api.projects.get(k)['project']['name']))
+        dones = dict()
         for e in reversed(p):
             done_time = datetime.datetime.strptime(e['event_date'], "%a %d %b %Y %H:%M:%S %z")
             print("** <{}>{}".format(done_time.strftime('%Y-%m-%d %H:%M'), e['extra_data']['content']))
             taskId = e['object_id']
             for le in activity:
                 if le['parent_item_id'] == taskId:
-                    print("\t- {}".format(le['extra_data']['content']))
+                    if not taskId in dones:
+                        dones[taskId] = 1
+                        print("\t- {}".format(le['extra_data']['content']))
 
 
 if __name__ == "__main__":
