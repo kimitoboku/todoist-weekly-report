@@ -1,0 +1,9 @@
+#+TITLE: Todoist Weekly Report
+#+AUTHOR: Kawakami Kento(@emaxser)
+#+EMAIL: emaxser@bonprosoft.com
+#+OPTIONS: ^:{}
+#+STYLE: <link rel="stylesheet" type="text/css" href="./org.css" />
+#+LANGUAGE: ja
+
+* 概要
+  TodoistのAPIを使用して今週やったことをorg-mode形式でまとめてくれるツール．
